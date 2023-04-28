@@ -62,6 +62,7 @@
     <Compile Include="Assets\Game.cs" />
     <Compile Include="Assets\Obstacle.cs" />
     <Compile Include="Assets\Menu.cs" />
+    <Compile Include="Assets\ButtonPlus.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

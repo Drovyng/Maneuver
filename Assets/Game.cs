@@ -79,12 +79,17 @@ public class Game : MonoBehaviour
         yield break;
     }
 
+    public Menu menu;
     public Player player;
 
     private void Start()
     {
+        menu = FindAnyObjectByType<Menu>();
+        menu.opened = true;
+        menu.OpenClose();
         if (!firstStarted)
         {
+
             downText.text = "Click to start";
             firstStarted = true;
         }
@@ -108,23 +113,26 @@ public class Game : MonoBehaviour
         }
         Physics2D.Simulate(Time.fixedDeltaTime * timeScale);
     }
-    private void Update()
+    public void ScreenTouch()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (menu.opened) return;
+        if (!gameStarted)
         {
-            if (!gameStarted)
-            {
-                GameStart();
-                player.rigidbody.simulated = true;
-            }
-            else if (gameFailed && gameCanRestart)
-            {
-                GameRestart();
-            }
+            GameStart();
+            player.rigidbody.simulated = true;
+            player.Jump();
+        }
+        else if (!gameFailed)
+        {
+            player.Jump();
+        }
+        else if (gameCanRestart)
+        {
+            GameRestart();
         }
     }
     public static void PlaySound(int index)
     {
-        instance.soundPlayer.PlayOneShot(instance.sounds[index]);
+        instance.soundPlayer.PlayOneShot(instance.sounds[index], instance.menu.soundVolume);
     }
 }
