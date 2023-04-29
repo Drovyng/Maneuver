@@ -7,7 +7,6 @@ public class Obstacle : MonoBehaviour
     private bool scored;
     private void Start()
     {
-        leftRight = Random.Range(0, 2) == 0;
         Respawn();
         isSpawned = true;
     }
@@ -15,8 +14,9 @@ public class Obstacle : MonoBehaviour
     {
         transform.position = new Vector3(Random.Range(0, 4) * 1.25f - 2, isSpawned ? transform.position.y + 25 : transform.position.y);
         scored = false;
+        leftRight = Random.Range(0, 2) == 0;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (transform.position.y <= Game.instance.transform.position.y - 10)
         {
@@ -28,6 +28,6 @@ public class Obstacle : MonoBehaviour
             Game.score += 1;
             Game.PlaySound(1);
         }
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.fixedDeltaTime * Game.timeScale);
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.deltaTime * Game.timeScale);
     }
 }

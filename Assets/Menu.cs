@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +6,10 @@ public class Menu : MonoBehaviour
     public static (Color, Color)?[] colorThemes = new (Color, Color)?[]
     {
         null,
-        (new Color(0.5f, 0.6666667f, 1, 1), new Color(0.8431373f, 0, 0, 1)),
-        (new Color(1f, 0.7f, 0.5f, 1), new Color(0, 0.8431373f, 0.4f, 1)),
-        (new Color(1f, 0.5f, 0.5f, 1), new Color(0.7091904f, 0, 0.844f, 1))
+        (new Color(0.5f, 0.6666667f, 1, 1), new Color(0.85f, 0, 0, 1)),
+        (new Color(1f, 0.7f, 0.5f, 1), new Color(0, 0.85f, 0.4f, 1)),
+        (new Color(1f, 0.5f, 0.5f, 1), new Color(0.7f, 0, 0.844f, 1)),
+        (new Color(0.5f, 1f, 0.55f, 1), new Color(0f, 0.56f, 0.85f, 1))
     };
     public static void ChangeColorTheme()
     {
@@ -31,7 +31,7 @@ public class Menu : MonoBehaviour
         }
         else
         {
-            Game.instance.menu.colorDownText.text = "<color=\"#" + UnityEngine.ColorUtility.ToHtmlStringRGB(colors.Item1) + "\">Player</color> <color=\"#" + UnityEngine.ColorUtility.ToHtmlStringRGB(colors.Item2) + "\">Obstacle</color>";
+            Game.instance.menu.colorDownText.text = "<color=\"#" + ColorUtility.ToHtmlStringRGB(colors.Item1) + "\">Player</color> <color=\"#" + UnityEngine.ColorUtility.ToHtmlStringRGB(colors.Item2) + "\">Obstacle</color>";
         }
         foreach (var obj in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
