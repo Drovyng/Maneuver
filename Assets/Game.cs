@@ -69,13 +69,13 @@ public class Game : MonoBehaviour
     }
     public IEnumerator GameFailAnim()
     {
-        yield return new WaitForSecondsRealtime(1f / 3f);
+        yield return new WaitForSecondsRealtime(1f / 4f);
         Color color = Color.white;
         color.a = 0;
         while (color.a < 1)
         {
             yield return new WaitForSecondsRealtime(0.025f);
-            color.a += 0.025f;
+            color.a += 0.1f;
             downText.color = color;
         }
         gameCanRestart = true;
