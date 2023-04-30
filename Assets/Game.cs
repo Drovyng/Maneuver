@@ -11,7 +11,6 @@ public class Game : MonoBehaviour
     public static bool gameFailed;
     public static float gameCanStart;
     public static bool gameCanRestart;
-    public static float timeScale = 1;
     private static int _score;
     public static int score
     {
@@ -44,7 +43,7 @@ public class Game : MonoBehaviour
         gameFailed = false;
         gameCanRestart = false;
         gameCanStart = 0.1f;
-        timeScale = 1;
+        Time.timeScale = 1;
         score = 0;
         
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
@@ -64,18 +63,18 @@ public class Game : MonoBehaviour
         {
             instance.scoreText.text += "/" + bestScore;
         }
-        timeScale = 0.2f;
+        Time.timeScale = 0.2f;
         instance.StartCoroutine(instance.GameFailAnim());
     }
     public IEnumerator GameFailAnim()
     {
-        yield return new WaitForSeconds(1f / 3f);
+        yield return new WaitForSecondsRealtime(1f / 3f);
         Color color = Color.white;
         color.a = 0;
         while (color.a < 1)
         {
-            yield return new WaitForFixedUpdate();
-            color.a += Time.fixedDeltaTime * 3;
+            yield return new WaitForSecondsRealtime(0.025f);
+            color.a += 0.025f;
             downText.color = color;
         }
         gameCanRestart = true;
@@ -92,7 +91,6 @@ public class Game : MonoBehaviour
         menu.OpenClose();
         if (!firstStarted)
         {
-
             downText.text = "Click to start";
             firstStarted = true;
         }
@@ -112,14 +110,13 @@ public class Game : MonoBehaviour
     {
         if (gameCanStart > 0)
         {
-            gameCanStart = Mathf.Max(0, gameCanStart - Time.deltaTime);
+            gameCanStart = Mathf.Max(0, gameCanStart - Time.unscaledDeltaTime);
         }
 
         if (player.transform.position.y > transform.position.y - 2.5f)
         {
-            transform.position = new Vector3(0, Mathf.Lerp(transform.position.y, player.transform.position.y + 2.5f, Time.deltaTime * 2.25f));
+            transform.position = new Vector3(0, Mathf.Lerp(transform.position.y, player.transform.position.y + 2.5f, Time.deltaTime * 2.75f));
         }
-        Physics2D.Simulate(Time.deltaTime * timeScale);
     }
     public void ScreenTouch()
     {

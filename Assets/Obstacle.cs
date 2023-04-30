@@ -28,6 +28,6 @@ public class Obstacle : MonoBehaviour
             Game.score += 1;
             Game.PlaySound(1);
         }
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.deltaTime * Game.timeScale);
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.deltaTime);
     }
 }

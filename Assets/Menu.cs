@@ -9,7 +9,8 @@ public class Menu : MonoBehaviour
         (new Color(0.5f, 0.6666667f, 1, 1), new Color(0.85f, 0, 0, 1)),
         (new Color(1f, 0.7f, 0.5f, 1), new Color(0, 0.85f, 0.4f, 1)),
         (new Color(1f, 0.5f, 0.5f, 1), new Color(0.7f, 0, 0.844f, 1)),
-        (new Color(0.5f, 1f, 0.55f, 1), new Color(0f, 0.56f, 0.85f, 1))
+        (new Color(0.5f, 1f, 0.55f, 1), new Color(0f, 0.56f, 0.85f, 1)),
+        (new Color(0.58f, 0.5f, 1f, 1), new Color(0.85f, 0.78f, 0f, 1))
     };
     public static void ChangeColorTheme()
     {
