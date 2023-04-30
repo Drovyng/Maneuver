@@ -122,7 +122,10 @@ public class Game : MonoBehaviour
     }
     public void ScreenTouch()
     {
-        if (menu.opened || gameCanStart > 0) return;
+        if (menu.opened || gameCanStart > 0)
+        {
+            return;
+        }
         if (!gameStarted)
         {
             GameStart();
