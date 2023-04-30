@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public static bool gameFailed;
     public static float gameCanStart;
     public static bool gameCanRestart;
+    public static float timeScale = 1;
     private static int _score;
     public static int score
     {
@@ -43,7 +44,7 @@ public class Game : MonoBehaviour
         gameFailed = false;
         gameCanRestart = false;
         gameCanStart = 0.1f;
-        Time.timeScale = 1;
+        timeScale = 1;
         score = 0;
         
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
@@ -63,7 +64,7 @@ public class Game : MonoBehaviour
         {
             instance.scoreText.text += "/" + bestScore;
         }
-        Time.timeScale = 0.2f;
+        timeScale = 0.2f;
         instance.StartCoroutine(instance.GameFailAnim());
     }
     public IEnumerator GameFailAnim()
@@ -106,17 +107,18 @@ public class Game : MonoBehaviour
         }
         Menu.ApplyColorTheme();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (gameCanStart > 0)
         {
-            gameCanStart = Mathf.Max(0, gameCanStart - Time.unscaledDeltaTime);
+            gameCanStart = Mathf.Max(0, gameCanStart - Time.fixedDeltaTime);
         }
 
         if (player.transform.position.y > transform.position.y - 2.5f)
         {
-            transform.position = new Vector3(0, Mathf.Lerp(transform.position.y, player.transform.position.y + 2.5f, Time.deltaTime * 2.75f));
+            transform.position = new Vector3(0, Mathf.Lerp(transform.position.y, player.transform.position.y + 2.5f, Time.fixedDeltaTime * 2.75f));
         }
+        Physics2D.Simulate(Time.fixedDeltaTime * timeScale);
     }
     public void ScreenTouch()
     {

@@ -16,7 +16,7 @@ public class Obstacle : MonoBehaviour
         scored = false;
         leftRight = Random.Range(0, 2) == 0;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (transform.position.y <= Game.instance.transform.position.y - 10)
         {
@@ -28,6 +28,6 @@ public class Obstacle : MonoBehaviour
             Game.score += 1;
             Game.PlaySound(1);
         }
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.fixedDeltaTime * Game.timeScale);
     }
 }
