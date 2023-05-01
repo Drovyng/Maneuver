@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.101960786
       objectReference: {fileID: 0}
+    - target: {fileID: 8108943107051783427, guid: 069446ba17c693245a9fad437eb2cb12, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8560325551407111579, guid: 069446ba17c693245a9fad437eb2cb12, type: 3}
       propertyPath: m_Name
       value: Bound

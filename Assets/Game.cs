@@ -30,6 +30,8 @@ public class Game : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject obstaclesParent;
 
+    public ParticleSystem particles;
+
     public AudioClip[] sounds;
     public AudioSource soundPlayer;
     public static void GameStart()
@@ -65,6 +67,7 @@ public class Game : MonoBehaviour
             instance.scoreText.text += "/" + bestScore;
         }
         timeScale = 0.2f;
+        instance.particles.playbackSpeed = 0.2f;
         instance.StartCoroutine(instance.GameFailAnim());
     }
     public IEnumerator GameFailAnim()
