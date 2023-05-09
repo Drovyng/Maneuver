@@ -31,6 +31,7 @@ public class Game : MonoBehaviour
     public GameObject obstaclesParent;
 
     public ParticleSystem particles;
+    public SpriteRenderer scoreTenLine;
 
     public AudioClip[] sounds;
     public AudioSource soundPlayer;

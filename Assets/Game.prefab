@@ -5122,6 +5122,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9da3e1ebf1b2ef444ab5c51cab5ceb15, type: 3}
   - {fileID: 8300000, guid: 8155f44a90dee104cacb2334de3ce659, type: 3}
   - {fileID: 8300000, guid: aa93841a97996c04cb4b3362cf55d9d1, type: 3}
+  - {fileID: 8300000, guid: 9e84fac202a7a814d8bb232396c039d5, type: 3}
   soundPlayer: {fileID: 5284189401306917354}
   menu: {fileID: 0}
   player: {fileID: 0}

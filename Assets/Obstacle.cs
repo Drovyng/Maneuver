@@ -22,11 +22,11 @@ public class Obstacle : MonoBehaviour
         {
             Respawn();
         }
-        if (!Game.gameFailed && !scored && transform.position.y + 0.75f <= Game.instance.player.transform.position.y)
+        if (!Game.gameFailed && !scored && transform.position.y + 1.25f <= Game.instance.player.transform.position.y)
         {
             scored = true;
             Game.score += 1;
-            Game.PlaySound(1);
+            Game.PlaySound(Game.score % 10 != 0 ? 1 : 3);
         }
         transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + (leftRight ? 180 : -180) * Time.fixedDeltaTime * Game.timeScale);
     }

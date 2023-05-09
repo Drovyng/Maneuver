@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour
             Game.instance.menu.colorDownText.text = "<color=\"#" + ColorUtility.ToHtmlStringRGB(colors.Item1) + "\">Player</color> <color=\"#" + UnityEngine.ColorUtility.ToHtmlStringRGB(colors.Item2) + "\">Obstacle</color>";
         }
         Game.instance.particles.startColor = Color.Lerp(new Color(1, 1, 1, 0.25f), Color.Lerp(colors.Item2, Color.white, 0.25f), 0.5f);
+        Game.instance.scoreTenLine.color = Color.Lerp(colors.Item1, Color.white, 0.5f);
         foreach (var obj in FindObjectsByType<GameObject>(FindObjectsSortMode.None))
         {
             if (obj.gameObject.tag == "Player")
