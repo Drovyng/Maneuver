@@ -58,6 +58,8 @@ public class Game : MonoBehaviour
         gameFailed = true;
         PlaySound(2);
 
+        PlayerPrefs.SetInt("Fails", PlayerPrefs.GetInt("Fails", 0) + 1);
+
         int bestScore = PlayerPrefs.GetInt("BestScore", 0);
         if (_score > bestScore)
         {
