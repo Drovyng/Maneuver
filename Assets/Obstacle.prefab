@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6855548714154167597}
-  - component: {fileID: 1411577515772335654}
-  - component: {fileID: 5259784805426264398}
   - component: {fileID: 3073879228679022833}
+  - component: {fileID: 1411577515772335654}
+  - component: {fileID: 676727050312055270}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -34,6 +34,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3073879228679022833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591401741672277292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9248a36c9e9b482408765b3ba4f71671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1411577515772335654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,7 +98,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5259784805426264398
+--- !u!58 &676727050312055270
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,16 +132,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
---- !u!114 &3073879228679022833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591401741672277292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9248a36c9e9b482408765b3ba4f71671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.85

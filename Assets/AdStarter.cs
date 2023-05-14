@@ -13,7 +13,11 @@ public class AdStarter : MonoBehaviour
 
         if (PlayerPrefs.HasKey("Fails") && PlayerPrefs.GetInt("Fails") % 10 == 0)
         {
-            AdStarter.instance.RequestInterstitial();
+            RequestInterstitial();
+        }
+        else
+        {
+            Game.adShown = true;
         }
     }
     public void RequestInterstitial()
@@ -68,6 +72,7 @@ public class AdStarter : MonoBehaviour
     public void HandleInterstitialFailedToLoad(object sender, AdFailureEventArgs args)
     {
         DisplayMessage("HandleInterstitialFailedToLoad event received with message: " + args.Message);
+        Game.adShown = true;
     }
 
     public void HandleReturnedToApplication(object sender, EventArgs args)
@@ -93,6 +98,7 @@ public class AdStarter : MonoBehaviour
     public void HandleInterstitialDismissed(object sender, EventArgs args)
     {
         DisplayMessage("HandleInterstitialDismissed event received");
+        Game.adShown = true;
     }
 
     public void HandleImpression(object sender, ImpressionData impressionData)
@@ -104,6 +110,7 @@ public class AdStarter : MonoBehaviour
     public void HandleInterstitialFailedToShow(object sender, AdFailureEventArgs args)
     {
         DisplayMessage("HandleInterstitialFailedToShow event received with message: " + args.Message);
+        Game.adShown = true;
     }
 
     #endregion

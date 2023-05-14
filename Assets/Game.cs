@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     public static Game instance;
+    public static bool adShown;
     public static bool firstStarted;
     public static bool gameStarted;
     public static bool gameFailed;
@@ -49,7 +50,9 @@ public class Game : MonoBehaviour
         gameCanStart = 0.1f;
         timeScale = 1;
         score = 0;
-        
+        adShown = false;
+
+
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
     public static void GameFail()
@@ -115,7 +118,7 @@ public class Game : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (gameCanStart > 0)
+        if (gameCanStart > 0 && adShown)
         {
             gameCanStart = Mathf.Max(0, gameCanStart - Time.fixedDeltaTime);
         }
