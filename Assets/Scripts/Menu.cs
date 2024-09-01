@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    public GameObject PlayPanelsToActivate;
     public static Menu Instance { get; private set; }
 
     public static int OpenedPage = -1;
@@ -39,6 +40,8 @@ public class Menu : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        PlayPanelsToActivate.SetActive(true);
 
         foreach (var page in _pages)
         {

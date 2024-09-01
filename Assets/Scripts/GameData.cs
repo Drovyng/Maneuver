@@ -35,6 +35,7 @@ public class GameData
         PlayerPrefs.SetString("GameData", JsonUtility.ToJson(Instance));
         PlayerPrefs.Save();
     }
+    public static bool outdatedAlready;
     public float totalTime;
     public int color;
     public int attempts;

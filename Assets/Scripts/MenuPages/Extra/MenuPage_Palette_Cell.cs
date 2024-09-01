@@ -17,7 +17,6 @@ public class MenuPage_Palette_Cell : MonoBehaviour
             GameData.Save();
             Game.Instance.ApplyColors();
         }
-        Utils.CurColor = color;
     }
     private void Awake()
     {
